@@ -1,0 +1,41 @@
+name: Enhancement Report
+description: Create a report to help us improve NCCL
+labels: ["enhancement"]
+body:
+  - type: input
+    id: nccl_version
+    attributes:
+      label: NCCL Version
+      description: "What version of NCCL are you running?"
+      placeholder: "e.g., 2.26.2, 2.25.1, git branch name and hash, etc."
+    validations:
+      required: false
+  - type: input
+    id: cuda_version
+    attributes:
+      label: CUDA Version
+      description: "What version of CUDA are you running?"
+      placeholder: "e.g., 12.6.3, 12.8.1, etc."
+    validations:
+      required: false
+  - type: dropdown
+    id: allways
+    attributes:
+      label: What application are you using?
+      multiple: true
+      options:
+        - Pytorch
+        - TensorFlow
+        - Megatron-LM
+        - DeepSpeed
+        - TorchRec
+        - nccl-tests
+        - Others
+  - type: textarea
+    id: detail
+    attributes:
+      label: Details
+      description: "Please describe your request."
+      placeholder: "Type your description here…"
+    validations:
+      required: true

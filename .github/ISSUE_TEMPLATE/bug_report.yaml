@@ -1,0 +1,47 @@
+name: Bug Report
+description: Create a report to help us improve NCCL
+labels: ["bug"]
+body:
+  - type: input
+    id: nccl_version
+    attributes:
+      label: NCCL Version
+      description: "What version of NCCL are you running?"
+      placeholder: "e.g., 2.26.2, 2.25.1, git branch name and hash, etc."
+    validations:
+      required: true
+  - type: input
+    id: cuda_version
+    attributes:
+      label: CUDA Version
+      description: "What version of CUDA are you running?"
+      placeholder: "e.g., 12.6.3, 12.8.1, etc."
+    validations:
+      required: true
+  - type: dropdown
+    id: allways
+    attributes:
+      label: What application are you using?
+      multiple: true
+      options:
+        - Pytorch
+        - TensorFlow
+        - Megatron-LM
+        - DeepSpeed
+        - TorchRec
+        - nccl-tests
+        - Others
+  - type: textarea
+    id: detail
+    attributes:
+      label: Details
+      description: "Please describe, in detail, the problem that you are having, including the behavior you expect to see, the actual behavior that you are seeing, steps to reproduce the problem, etc. It is most helpful if you can attach a small program that a developer can use to reproduce your problem."
+      placeholder: "Type your description here…"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. We recommend you run with `NCCL_DEBUG=info NCCL_DEBUG_SUBSYS=all NCCL_DEBUG_FILE=/path/to/log/nccl_log.%p.log` and upload the log file after details.
+      render: shell
